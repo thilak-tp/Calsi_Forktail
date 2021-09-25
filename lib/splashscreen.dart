@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               Expanded(
                   child: Center(
-                child: Text(
+                child: const Text(
                   "2020 (c) Forktail.All rights reserved.",
                   textAlign: TextAlign.center,
                   style: TextStyle(

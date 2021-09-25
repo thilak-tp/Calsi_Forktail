@@ -1,45 +1,26 @@
-import 'package:calculator/splashscreen.dart';
 import 'package:flutter/material.dart';
-
 import 'homepage.dart';
-//import 'dart:async';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: CalsiMain(),
-    ),
-  );
+void main() => runApp(ForkCalsi());
+
+class ForkCalsi extends StatefulWidget {
+  @override
+  _ForkCalsiState createState() => _ForkCalsiState();
 }
 
-class CalsiMain extends StatefulWidget {
-  @override
-  _CalsiMainState createState() => _CalsiMainState();
-}
-
-class _CalsiMainState extends State<CalsiMain> {
-  void initState() {
-    super.initState();
-    Future.delayed(
-      Duration(seconds: 4),
-      () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
+class _ForkCalsiState extends State<ForkCalsi> {
   @override
   Widget build(BuildContext context) {
-    return SplashScreen();
+    return MaterialApp(
+      home: AnimatedSplashScreen(
+        splash: Image.asset('assets/logo.png'),
+        splashTransition: SplashTransition.fadeTransition,
+        splashIconSize: 1000,
+        duration: 3000,
+        backgroundColor: Colors.red,
+        nextScreen: HomePage(),
+      ),
+    );
   }
 }
